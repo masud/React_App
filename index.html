@@ -10,17 +10,25 @@
   <script type="text/jsx">
 
     var App = React.createClass({
+      getInitialState:function(){
+        return {txt:'',id:0}
+    },
+        updateTxt:function(e){
+            this.setState({txt:e.target.value})
+        },
         render:function(){
+
             return (
                 <div>
-                    <h1>Hi There</h1>
-                    <strong>Hey!! how r u? </strong>
+                    <input type="text" onChange={this.updateTxt} />
+                    <h1>{this.state.txt}</h1>
                 </div>
                 )
         }
+
     });
 
-    React.render(<App/>,document.body)
+     React.render(<App txt="hello world!"/>,document.body)
 
   </script>
 </body>
